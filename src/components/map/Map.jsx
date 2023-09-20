@@ -8,7 +8,7 @@ const ICON = icon({
     iconSize: [32, 32],
 })
 
-const Map = () => {
+export const Map = () => {
     const liberiaCenter = [6.3156, -9.3407]; // Centered on Liberia (Latitude, Longitude)
 
     const markers = [

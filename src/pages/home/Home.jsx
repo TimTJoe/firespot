@@ -1,5 +1,5 @@
 import Layout from "@components/layout"
-import Map from "@components/Map"
+import Map from "@components/map"
 
 const Home = () => {
     return (
