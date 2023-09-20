@@ -1,7 +1,7 @@
 import { ActionGroup, Item, Text, View } from "@adobe/react-spectrum"
 import Settings from "@spectrum-icons/workflow/Settings"
 import More from "@spectrum-icons/workflow/MoreVertical"
-import Country from "./components/Country"
+import Counties from "./components/Counties"
 import Refresh from "./components/Refresh"
 import Filter from "./components/Filter"
 
@@ -19,7 +19,7 @@ const Navigation = () => {
                 <Refresh />
             </Item>
             <Item>
-                <Country />
+                <Counties />
             </Item>
             <Item>
                 <Filter />
