@@ -1,6 +1,5 @@
 import { View } from "@adobe/react-spectrum"
 import Navigation from "@components/navigation"
-import Map from "@components/Map"
 
 const Layout = ({ children }) => {
     return (
@@ -8,7 +7,7 @@ const Layout = ({ children }) => {
             position={"relative"}
         >
             <Navigation />
-            <Map />
+            {children}
         </View>
     )
 }
