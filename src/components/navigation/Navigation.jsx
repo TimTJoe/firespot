@@ -1,6 +1,7 @@
 import styled from "@emotion/styled"
 import { useState } from "react";
 import { Box, Button, ButtonGroup } from "@mui/material"
+import { useMode } from "@providers/ProvideMode";
 
 const Group = styled(ButtonGroup)`
   position: absolute;
@@ -11,10 +12,11 @@ const Group = styled(ButtonGroup)`
 `
 
 const Navigation = () => {
+    const { switchMode } = useMode()
 
     return (
         <Group variant="contained" >
-            <Button>One</Button>
+            <Button onClick={switchMode}>One</Button>
             <Button>Two</Button>
             <Button>Three</Button>
         </Group>
