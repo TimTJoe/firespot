@@ -1,7 +1,12 @@
 import styled from "@emotion/styled"
 import { useState } from "react";
-import { Box, Button, ButtonGroup } from "@mui/material"
+import { Box, Button, ButtonGroup, useTheme } from "@mui/material"
 import { useMode } from "@providers/ProvideMode";
+import Refresh from "./components/Refresh";
+import Filter from "./components/Mode";
+import Options from "./components/Options";
+
+const theme = useTheme()
 
 const Group = styled(ButtonGroup)`
   position: absolute;
@@ -9,6 +14,12 @@ const Group = styled(ButtonGroup)`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9000;
+  & > :first-child {
+    border-radius: 12px;
+  }
+  & > :last-child {
+    border-radius: 12px;
+  }
 `
 
 const Navigation = () => {
@@ -16,9 +27,9 @@ const Navigation = () => {
 
     return (
         <Group variant="contained" >
-            <Button onClick={switchMode}>One</Button>
-            <Button>Two</Button>
-            <Button>Three</Button>
+            <Refresh />
+            <Options />
+            <Filter />
         </Group>
     )
 }
