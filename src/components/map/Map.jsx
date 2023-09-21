@@ -1,12 +1,7 @@
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { icon } from "leaflet"
-import fireIcon from "@spectrum-icons/workflow/HotFixes"
 
-const ICON = icon({
-    iconUrl: fireIcon,
-    iconSize: [32, 32],
-})
 
 export const Map = () => {
     const liberiaCenter = [6.3156, -9.3407]; // Centered on Liberia (Latitude, Longitude)
@@ -35,7 +30,7 @@ export const Map = () => {
                     <Marker
                         key={index}
                         position={marker.position}
-                        // icon={ICON}
+                    // icon={ICON}
                     >
                         <Popup>{marker.name}</Popup>
                     </Marker>
