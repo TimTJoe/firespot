@@ -15,14 +15,14 @@ const useLiberiaFireData = () => {
                 // Fetch data from all three sources concurrently using Promise.all()
                 const [data1, data2, data3] = await Promise.all([
                     fetch(NASA_API_LIB).then((response) => response.json()),
-                    fetch(source2).then((response) => response.json()),
+                    fetch(NASA_API_WORLD).then((response) => response.json()),
                     fetch(source3).then((response) => response.json()),
                 ]);
 
                 // Process and combine the data as needed
                 const combinedData = {
-                    NASAData: data1,
-                    source2Data: data2,
+                    NASADataLIB: data1,
+                    NASADATAWORLD: data2,
                     source3Data: data3,
                 };
 
