@@ -9,14 +9,12 @@ const ProvideMode = ({ children }) => {
 
     const switchMode = useCallback(() => {
         setMode(mode === 'light' ? 'dark' : 'light');
-        console.log(mode);
     }, [mode]);
 
-    const theme = useMemo(() => createTheme({ palette: { mode, }, }), [mode]);
 
     const ctxValues = {
         switchMode,
-        theme
+        mode
     }
 
     return (<withMode.Provider value={ctxValues}>{children}</withMode.Provider>)
