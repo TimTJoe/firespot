@@ -1,14 +1,17 @@
-import { View } from "@adobe/react-spectrum"
+import { Box } from "@mui/material"
 import Navigation from "@components/navigation"
+import styled from "@emotion/styled"
+
+const Container = styled(Box)`
+    position: relative;
+`
 
 const Layout = ({ children }) => {
     return (
-        <View
-            position={"relative"}
-        >
+        <Container >
             <Navigation />
             {children}
-        </View>
+        </Container>
     )
 }
 

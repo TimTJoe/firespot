@@ -35,7 +35,7 @@ export const Map = () => {
                     <Marker
                         key={index}
                         position={marker.position}
-                        icon={ICON}
+                        // icon={ICON}
                     >
                         <Popup>{marker.name}</Popup>
                     </Marker>
