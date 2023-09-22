@@ -22,7 +22,7 @@ function Update() {
         <Button
             onClick={handleUpdate}
             startIcon={loading ? <CircularProgress color="inherit" size={20} /> : <RxUpdate />}>
-            Update
+            Reload
         </Button>)
 }
 

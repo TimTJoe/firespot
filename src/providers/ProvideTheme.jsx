@@ -10,9 +10,19 @@ const ProvideTheme = ({ children }) => {
         typography: {
             button: {
                 textTransform: "capitalize",
-                fontWeight: 600
+                fontWeight: 600,
             },
         },
+        components: {
+            //Overide MUI Button Default styles
+            MuiButton: {
+                styleOverrides: {
+                    contained: { borderRadius: "17px", },
+                    text: { borderRadius: "17px", },
+                    outlined: { borderRadius: "17px", }
+                }
+            }
+        }
     }), [mode]);
 
 
