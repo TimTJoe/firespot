@@ -5,14 +5,15 @@ import { RxExit, RxInfoCircled } from "react-icons/rx"
 
 const Container = styled(Box)`
     position: absolute;
-    bottom: 2%;
-    left: 1%;
+    bottom: 4%;
+    right: 1%;
     z-index: 9000;
     padding: 6px;
     width: 280px;
     min-height: 100px;
-    background-color: #fdfdfd89;
+    background-color: #fdfdfdba;
     border-radius: 10px;
+    display: ${prop => prop.display};
 `
 
 const Body = styled(Typography)`
@@ -20,26 +21,27 @@ const Body = styled(Typography)`
 `
 
 export default function Notice() {
-    const [open, setOpen] = useState(true)
-    const handlePopper = () => setOpen(!open)
+    const [open, setOpen] = useState("block")
+    const handleOpen = () => setOpen(open === "block" ? "none" : "block")
+
 
     return (
-        <Container >
-            <Toolbar variant="dense" spacing={2} >
-                <RxInfoCircled />
+        <Container display={open} >
+            <Body>
+                Data is fetched from the NASA FIRMS API. On this platform, record are only for educational purpose.
+                <br />
                 <Button
-                    variant="outlined"
+                    onClick={handleOpen}
+                    fullWidth
+                    variant="contained"
                     color="primary"
                     size="small"
-                    sx={{ marginLeft: "auto" }}
+                    sx={{ mt: 2, mb: 2 }}
                     disableElevation
-
                 >
-                    I Get It
+                    I Understand
                 </Button>
-            </Toolbar>
-            <Body>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora sit accusantium possimus ad laudantium, fuga, facere maiores.
+                &copy; Timothy T. Joe
             </Body>
         </Container>
     )
