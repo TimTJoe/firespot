@@ -6,7 +6,6 @@ const Home = () => {
     return (
         <Layout>
             <Map />
-            <Notice />
         </Layout>
     )
 }

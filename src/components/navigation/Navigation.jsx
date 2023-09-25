@@ -6,6 +6,8 @@ import Update from "./components/Update";
 import Filter from "./components/Mode";
 import Options from "./components/Region";
 import { grey } from "@mui/material/colors";
+import Notice from "@components/Notice"
+
 
 const Group = styled(ButtonGroup)`
   position: absolute;
@@ -30,6 +32,7 @@ const Navigation = () => {
 
   return (
     <Group variant="contained" disableElevation>
+      <Notice />
       <Update />
       <Options />
       <Filter />

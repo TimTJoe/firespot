@@ -1,7 +1,10 @@
 import styled from "@emotion/styled"
-import { Box, Button, Toolbar, Typography } from "@mui/material"
-import { useState } from "react"
-import { RxExit, RxInfoCircled } from "react-icons/rx"
+import { Box, IconButton, Popover, Typography } from "@mui/material"
+import { useEffect, useState } from "react"
+import { RxCross1, RxCrossCircled, RxExit, RxInfoCircled } from "react-icons/rx"
+import Popper from "@mui/material/Popper"
+
+
 
 const Container = styled(Box)`
     position: absolute;
@@ -18,31 +21,38 @@ const Container = styled(Box)`
 
 const Body = styled(Typography)`
     padding: 6px;
+    width: 360px;
 `
 
-export default function Notice() {
-    const [open, setOpen] = useState("block")
-    const handleOpen = () => setOpen(open === "block" ? "none" : "block")
+const customIconBtn = styled(IconButton)``
+const CustomPopover = styled(Popover)``
 
+export default function Notice() {
+    const [anchorEl, setAnchorEl] = useState(null)
+    const handleOpen = (event) => { setAnchorEl(anchorEl ? null : event.currentTarget) }
+    const open = Boolean(anchorEl)
+
+    useEffect(() => {
+
+    }, [])
 
     return (
-        <Container display={open} >
-            <Body>
-                Data is fetched from the NASA FIRMS API. On this platform, record are only for educational purpose.
-                <br />
-                <Button
-                    onClick={handleOpen}
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                    sx={{ mt: 2, mb: 2 }}
-                    disableElevation
-                >
-                    I Understand
-                </Button>
-                &copy; Timothy T. Joe
-            </Body>
-        </Container>
+        <>
+            <IconButton onClick={handleOpen}>
+                {anchorEl ? <RxCrossCircled /> : <RxInfoCircled />}
+            </IconButton>
+            <Popover
+                open={open}
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left"
+                }}
+            >
+                <Typography p={2} width={250}>
+                    Data is fetched from the NASA FIRMS API. On this platform, record are only for educational purpose.
+                </Typography>
+            </Popover>
+        </>
     )
 }
