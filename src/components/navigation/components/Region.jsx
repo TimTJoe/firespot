@@ -19,12 +19,13 @@ export default function Region() {
             id="option"
             options={regions}
             size='small'
-            renderInput={(params) => <TextField {...params} />}
+            renderInput={(params) => <TextField {...params} label="Select Region" />}
         />
     );
 }
 
 const regions = [
     { label: 'World', id: 1 },
-    { label: 'Liberia', id: 2 },
+    { label: 'Africa', id: 2 },
+    { label: 'West Africa', id: 3 },
 ];
