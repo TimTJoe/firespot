@@ -5,14 +5,17 @@ import { BrowserRouter as Routers, Outlet } from "react-router-dom"
 import "@assets/css/index.css"
 import ProvideTheme from '@providers/ProvideTheme.jsx'
 import { ProvideMode } from '@providers/ProvideMode.jsx'
+import { ProvideFire } from '@providers/ProvideFire.jsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Routers>
     <ProvideMode>
       <ProvideTheme>
-        <App />
-        <Outlet />
+        <ProvideFire>
+          <App />
+          <Outlet />
+        </ProvideFire>
       </ProvideTheme>
     </ProvideMode>
   </Routers>,

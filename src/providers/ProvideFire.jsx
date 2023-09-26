@@ -10,25 +10,26 @@ const ProvideFire = ({ children }) => {
 
     const APIUrl = {
         world: import.meta.env.VITE_WORLD_API_URL,
-        africa: import.meta.env.VITE_AFRICA_API_URL,
-        west_africa: import.meta.env.VITE_WEST_AFRICA_API_URL,
+        usa_can: import.meta.env.VITE_USA_CAN_URL,
+        liberia: import.meta.env.VITE_LIBERIA_API_URL,
     }[region]
-
-    const fetchFire = useCallback(async () => {
-        try {
-            const res = await fetch(APIUrl).then((response) => response.json())
-            return res
-        } catch (error) {
-            console.error("Could not fetch fire data")
-            return null
-        }
-    }, [])
 
 
     useEffect(() => {
-        const response = fetchFire();
-        setFires(response)
-    }, [APIUrl]);
+        const fetchFire = async () => {
+            try {
+                await fetch(import.meta.env.VITE_WORLD_API_URL)
+                    .then(
+                        (response) => { setFires(response) })
+                    .catch((error) => {
+                        throw new Error("Error fetch fire data", error)
+                    })
+            } catch (error) {
+                console.error("Could not fetch fire data", error)
+            }
+        }
+        fetchFire()
+    }, []);
 
     const ctxValues = {
         setRegion,
@@ -36,7 +37,9 @@ const ProvideFire = ({ children }) => {
         fires
     }
 
-    return (<withFire.Provider value={ctxValues}>{children}</withFire.Provider>)
+    return (
+        <withFire.Provider value={ctxValues}>{children}</withFire.Provider>
+    )
 
 };
 
