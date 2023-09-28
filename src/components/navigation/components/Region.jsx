@@ -16,14 +16,21 @@ const options = ["Global", "Africa", "Liberia", "USA", "Canada"]
 
 export default function Region() {
     const { region, setRegion } = useMap()
+    const [inputValue, setInputValue] = React.useState('');
 
     return (
         <ComboBox
             value={region}
+            onChange={(event, newValue) => {
+                setRegion(newValue);
+            }}
+            inputValue={inputValue}
+            onInputChange={(event, newInputValue) => {
+                setInputValue(newInputValue);
+            }}
             options={options}
+            sx={{ width: 230 }}
             size="small"
-            sx={{ width: 250 }}
-            onChange={(event, newValue) => { setRegion(newValue) }}
             renderInput={(params) => <TextField {...params} label="Select Region" />}
         />
     );

@@ -4,24 +4,26 @@ const withMap = createContext(undefined)
 
 const ProvideMap = ({ children }) => {
     const [zoom, setZoom] = useState(6)
-    const [region, setRegion] = useState("Global")
+    const [region, setRegion] = useState("Africa")
 
 
     useEffect(() => {
-        setZoom(region === "Global" ? 4 : 8)
+        setZoom(region === "Global" ? 1 : 5)
     }, [region])
 
     const center = {
-        Global: [6.2907, -10.7957],
-        Africa: [6.5244, -10.3492],
-        Liberia: [7.1907, -7.9934],
-        USA: [5.0114, -9.0385],
-        Canada: [5.7946, -7.0399],
+        USA: [37.0902, -95.7129],
+        Canada: [56.1304, -106.3468],
+        Liberia: [6.4281, -9.4295],
+        Global: [0, 0],
+        Africa: [1.2921, 27.6536]
     }[region]
 
     const ctxValue = {
         center,
-        zoom
+        zoom,
+        setRegion,
+        region,
     }
 
 
