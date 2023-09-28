@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import styled from '@emotion/styled';
-import { useFires } from '@providers/ProvideFire';
 import { useMap } from '@providers/ProvideMap';
 
 

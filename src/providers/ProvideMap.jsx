@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useFires } from "@providers/ProvideFire";
 
 const withMap = createContext(undefined)
 

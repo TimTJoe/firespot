@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { icon } from "leaflet"
 import { useFires } from '@providers/ProvideFire';
 import { useMap } from '@providers/ProvideMap';
 
