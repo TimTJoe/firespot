@@ -28,12 +28,8 @@ export default defineConfig({
         replacement: path.resolve(__dirname, "src/assets/images"),
       },
       {
-        find: "@utils",
-        replacement: path.resolve(__dirname, "src/utils"),
-      },
-      {
-        find: "@services",
-        replacement: path.resolve(__dirname, "src/services"),
+        find: "@helpers",
+        replacement: path.resolve(__dirname, "src/helpers"),
       },
       {
         find: "@providers",

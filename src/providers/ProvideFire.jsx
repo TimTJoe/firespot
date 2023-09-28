@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { createContext } from 'react';
 import { useEffect, useState } from 'react';
+import fetchFire from '@helpers/fetchFire';
 
 const withFire = createContext(undefined)
 
@@ -8,24 +9,8 @@ const ProvideFire = ({ children }) => {
     const [fires, setFires] = useState(null);
 
     useEffect(() => {
-        const fetchFire = async () => {
-            try {
-                await fetch(import.meta.env.VITE_WORLD_API_URL)
-                    .then(
-                        (response) => {
-                            if (!response.ok) {
-                                throw new Error("Network connection problem")
-                            }
-                            console.log(response)
-                        })
-                    .catch((error) => {
-                        throw new Error("Error fetch fire data", error)
-                    })
-            } catch (error) {
-                console.error("Could not fetch fire data", error)
-            }
-        }
-        fetchFire()
+        let data = fetchFire()
+        setFires(data)
     }, []);
 
     const ctxValues = {
