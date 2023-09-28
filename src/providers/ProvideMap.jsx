@@ -4,8 +4,9 @@ import { useFires } from "@providers/ProvideFire";
 const withMap = createContext(undefined)
 
 const ProvideMap = ({ children }) => {
-    const { region } = useFires()
     const [zoom, setZoom] = useState(6)
+    const [region, setRegion] = useState("Global")
+
 
     useEffect(() => {
         setZoom(region === "Global" ? 4 : 8)

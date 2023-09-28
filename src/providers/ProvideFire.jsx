@@ -6,7 +6,6 @@ const withFire = createContext(undefined)
 
 const ProvideFire = ({ children }) => {
     const [fires, setFires] = useState(null);
-    const [region, setRegion] = useState("Global")
 
     useEffect(() => {
         const fetchFire = async () => {
@@ -30,8 +29,6 @@ const ProvideFire = ({ children }) => {
     }, []);
 
     const ctxValues = {
-        setRegion,
-        region,
         fires,
     }
 

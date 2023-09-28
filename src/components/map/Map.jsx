@@ -18,10 +18,6 @@ export const Map = () => {
         { position: [5.7946, -7.0399], name: 'Voinjama' },
     ];
 
-    useEffect(() => {
-        console.log(zoom)
-    }, [center])
-
     return (
         <div style={{ width: '100%', height: '100vh' }}>
             <MapContainer
