@@ -1,7 +1,8 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import styled from '@emotion/styled';
+import { useFires } from '@providers/ProvideFire';
 
 
 const ComboBox = styled(Autocomplete)`
@@ -9,23 +10,22 @@ const ComboBox = styled(Autocomplete)`
     div.MuiInputBase-root {
         font-weight: 600;
         border-radius: unset;
-    }
-`
+    }`
+
+const options = ["Global", "Africa", "Liberia", "USA", "Canada"]
 
 export default function Region() {
+    const { region, setRegion } = useFires()
+    
     return (
         <ComboBox
-            disablePortal
-            id="option"
-            options={regions}
-            size='small'
+            value={region}
+            options={options}
+            size="small"
+            sx={{ width: 250 }}
+            onChange={(event, newValue) => { setRegion(newValue) }}
             renderInput={(params) => <TextField {...params} label="Select Region" />}
         />
     );
 }
 
-const regions = [
-    { label: 'World', id: 1 },
-    { label: 'Africa', id: 2 },
-    { label: 'West Africa', id: 3 },
-];

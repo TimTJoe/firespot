@@ -6,21 +6,19 @@ const withFire = createContext(undefined)
 
 const ProvideFire = ({ children }) => {
     const [fires, setFires] = useState(null);
-    const [region, setRegion] = useState("world")
-
-    const APIUrl = {
-        world: import.meta.env.VITE_WORLD_API_URL,
-        usa_can: import.meta.env.VITE_USA_CAN_URL,
-        liberia: import.meta.env.VITE_LIBERIA_API_URL,
-    }[region]
-
+    const [region, setRegion] = useState("Global")
 
     useEffect(() => {
         const fetchFire = async () => {
             try {
                 await fetch(import.meta.env.VITE_WORLD_API_URL)
                     .then(
-                        (response) => { setFires(response) })
+                        (response) => {
+                            if (!response.ok) {
+                                throw new Error("Network connection problem")
+                            }
+                            console.log(response)
+                        })
                     .catch((error) => {
                         throw new Error("Error fetch fire data", error)
                     })
@@ -34,7 +32,7 @@ const ProvideFire = ({ children }) => {
     const ctxValues = {
         setRegion,
         region,
-        fires
+        fires,
     }
 
     return (

@@ -2,14 +2,13 @@ import React, { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { icon } from "leaflet"
 import { useFires } from '@providers/ProvideFire';
+import { useMap } from '@providers/ProvideMap';
 
 
 export const Map = () => {
     const liberiaCenter = [6.3156, -9.3407];
     const { fires } = useFires()
-    useEffect(() => {
-        console.log(fires)
-    }, [])
+    const { center, zoom } = useMap()
 
     const markers = [
         { position: [6.2907, -10.7957], name: 'Monrovia' },
@@ -19,11 +18,15 @@ export const Map = () => {
         { position: [5.7946, -7.0399], name: 'Voinjama' },
     ];
 
+    useEffect(() => {
+        console.log(zoom)
+    }, [center])
+
     return (
         <div style={{ width: '100%', height: '100vh' }}>
             <MapContainer
-                center={liberiaCenter}
-                zoom={8} // Adjust the zoom level as needed
+                center={center}
+                zoom={zoom}
                 style={{ height: '100%', width: '100%' }}
             >
                 <TileLayer
