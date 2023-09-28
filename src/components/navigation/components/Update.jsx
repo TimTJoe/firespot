@@ -1,27 +1,24 @@
 import { RxUpdate } from "react-icons/rx"
 import { Button, CircularProgress } from "@mui/material"
 import { useEffect, useState } from "react"
+import { useFires } from "@providers/ProvideFire"
 
 
 function Update() {
-    const [loading, setLoading] = useState(false)
-
-    const handleUpdate = () => {
-        setLoading(true)
-    }
+    const { reload, handleReload } = useFires()
 
     useEffect(() => {
-        if (loading) {
+        if (reload) {
             setTimeout(() => {
-                setLoading(false)
+                handleReload(false)
             }, 3000);
         }
-    }, [loading])
+    }, [reload])
 
     return (
         <Button
-            onClick={handleUpdate}
-            startIcon={loading ? <CircularProgress color="inherit" size={20} /> : <RxUpdate />}>
+            onClick={handleReload}
+            startIcon={reload ? <CircularProgress color="inherit" size={20} /> : <RxUpdate />}>
             Reload
         </Button>)
 }

@@ -6,7 +6,7 @@ import { useMap } from '@providers/ProvideMap';
 
 export const Map = () => {
     const liberiaCenter = [6.3156, -9.3407];
-    const { fires } = useFires()
+    const { fires} = useFires()
     const { center, zoom } = useMap()
 
     const markers = [
