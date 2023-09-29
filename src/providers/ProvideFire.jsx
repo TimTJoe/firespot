@@ -7,23 +7,14 @@ const withFire = createContext(undefined)
 
 const ProvideFire = ({ children }) => {
     const [fires, setFires] = useState(null);
-    const [reload, setReload] = useState(false)
-    const handleReload = () => setReload(!reload)
 
     useEffect(() => {
-        try {
-            let data = fetchFire()
-            setFires(data)
-            console.log("reloaded")
-        } catch (error) {
-            console.error("Error geting data")
-        }
-    }, [reload]);
+        setFires(fetchFire())
+    }, [])
 
     const ctxValues = {
+        setFires,
         fires,
-        handleReload,
-        reload
     }
 
     return (

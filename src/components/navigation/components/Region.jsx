@@ -15,23 +15,19 @@ const ComboBox = styled(Autocomplete)`
 const options = ["Global", "Africa", "Liberia", "USA", "Canada"]
 
 export default function Region() {
-    const { region, setRegion } = useMap()
+    const { region, setRegion, } = useMap()
     const [inputValue, setInputValue] = React.useState('');
 
     return (
         <ComboBox
+            onChange={(event, newValue) => { setRegion(newValue) }}
+            onInputChange={(event, newInputValue) => { setInputValue(newInputValue) }}
+            renderInput={(params) => <TextField {...params} label="Select Region" />}
             value={region}
-            onChange={(event, newValue) => {
-                setRegion(newValue);
-            }}
             inputValue={inputValue}
-            onInputChange={(event, newInputValue) => {
-                setInputValue(newInputValue);
-            }}
             options={options}
             sx={{ width: 230 }}
             size="small"
-            renderInput={(params) => <TextField {...params} label="Select Region" />}
         />
     );
 }
