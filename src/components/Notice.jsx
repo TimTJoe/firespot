@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { Box, IconButton, Popover, Typography } from "@mui/material"
 import { useEffect, useState } from "react"
-import { RxCross1, RxCrossCircled, RxExit, RxInfoCircled } from "react-icons/rx"
+import { RxCrossCircled, RxInfoCircled } from "react-icons/rx"
 import Popper from "@mui/material/Popper"
 
 

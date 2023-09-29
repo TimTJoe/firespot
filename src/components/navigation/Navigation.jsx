@@ -7,6 +7,7 @@ import Filter from "./components/Mode";
 import Options from "./components/Region";
 import { grey } from "@mui/material/colors";
 import Notice from "@components/Notice"
+import Drawer from "@components/Drawer";
 
 
 const Group = styled(ButtonGroup)`
@@ -14,7 +15,7 @@ const Group = styled(ButtonGroup)`
   top:5%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9000;
+  z-index: 1000;
   border-radius: 23px;
   background-color: ${grey[400]};
   & > :first-child {
@@ -32,6 +33,7 @@ const Navigation = () => {
 
   return (
     <Group variant="contained" disableElevation>
+      <Drawer />
       <Notice />
       <Update />
       <Options />

@@ -7,6 +7,7 @@ const withFire = createContext(undefined)
 
 const ProvideFire = ({ children }) => {
     const [fires, setFires] = useState(null);
+    const [fireID, setFireID] = useState("2564DFRO")
 
     useEffect(() => {
         setFires(fetchFire())
@@ -14,7 +15,9 @@ const ProvideFire = ({ children }) => {
 
     const ctxValues = {
         setFires,
+        setFireID,
         fires,
+        fireID,
     }
 
     return (
