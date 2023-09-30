@@ -24,16 +24,34 @@ const Heading = styled(Typography)`
 `
 
 
-const Header = ({onClose}) => {
+const Header = ({ onClose }) => {
+    const handleShare = async () => {
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: "Share title",
+                    text: "Thext context or urs text content",
+                    url: "www.thext.com"
+                })
+            } catch (error) {
+                console.error(error)
+            }
+        } else {
+            console.log("Web Share not supported")
+        }
+    }
+
+
+
     return (
         <Toolbar sx={{ justifyContent: "space-between" }} >
             <Flexrow>
                 <Avatar src={logo} sx={{ height: 22, width: 22 }} />
-                <Heading variant="h6" color={"GrayText"}>Fire Detail</Heading>
+                <Heading variant="h6" >Fire Detail</Heading>
             </Flexrow>
             <Flexrow ml={"auto"}>
                 <Tooltip title="Share">
-                    <IconButton onClick={onClose} size="small">
+                    <IconButton onClick={handleShare} size="small">
                         <RxShare2 />
                     </IconButton>
                 </Tooltip>
