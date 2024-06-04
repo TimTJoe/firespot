@@ -13,6 +13,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "baseUrl": "./",
+    "paths": {}, //for alias path setup
 
     /* Linting */
     "strict": true,
@@ -20,6 +22,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src", "../search"],
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "typeRoots": ["node_modules/@types", "src/@types"]
 }
